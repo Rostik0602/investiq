@@ -1,0 +1,65 @@
+@use '../../../../shared/styles/variables' as *;
+@use '../../../../shared/styles/mixins' as *;
+
+.panel {
+  display: none;
+  width: 280px;
+  max-width: 100%;
+  padding: 24px 20px;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+
+  @include tablet {
+    display: block;
+  }
+
+  @include desktop {
+    width: 220px;
+    flex-shrink: 0;
+    // Верхній відступ підібраний так, щоб заголовок «Зведення» опинився
+    // на одній лінії з рядком заголовків таблиці (Дата/Опис/…), а не з рядком форми
+    padding: 105px 20px 24px;
+  }
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: center;
+  color: $color-text;
+  margin-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.month {
+  color: $color-text;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.value {
+  color: $color-text;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.empty {
+  font-size: 13px;
+  color: $color-text-secondary;
+}

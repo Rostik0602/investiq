@@ -1,0 +1,81 @@
+@use '../../shared/styles/variables' as *;
+@use '../../shared/styles/mixins' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: $color-bg;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 24px;
+  padding: 24px 20px 84px;
+
+  @include tablet {
+    padding: 32px 40px 60px;
+  }
+
+  @include desktop {
+    padding: 32px 64px 60px;
+  }
+}
+
+.panelCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  // На mobile список транзакцій притискається до низу (над фіксованою
+  // панеллю Витрати/Дохід), а не висить одразу під балансом
+  margin-top: auto;
+
+  @include tablet {
+    margin-top: 0;
+  }
+
+  @include desktop {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    border-radius: $radius-lg;
+    background-color: #fff;
+    box-shadow: $shadow-card;
+    overflow: hidden;
+  }
+}
+
+.tableColumn {
+  width: 100%;
+  flex: 1;
+  min-width: 0;
+  padding: 24px;
+
+  @include tablet {
+    border-radius: $radius-lg;
+    background-color: #fff;
+    box-shadow: $shadow-card;
+  }
+
+  @include desktop {
+    width: auto;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+.addTransactionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: $color-primary;
+  color: #fff;
+  text-decoration: none;
+}

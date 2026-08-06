@@ -1,0 +1,36 @@
+@use '../../shared/styles/variables' as *;
+@use '../../shared/styles/mixins' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background-color: #fff;
+
+  @include tablet {
+    padding: 20px 40px;
+  }
+
+  @include desktop {
+    padding: 24px 64px;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoText {
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+
+.rightSlot {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}

@@ -1,0 +1,210 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.wrapper {
+  display: none;
+
+  @include tablet {
+    display: block;
+    max-height: 360px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: $color-primary $color-border;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $color-border;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-primary;
+      border-radius: 3px;
+    }
+  }
+}
+
+// table-layout: fixed + явна ширина кожної колонки — інакше браузер сам
+// підбирає ширину колонок під найдовший текст заголовка (auto layout), і
+// "DESCRIPTION" проти короткого "ОПИС" зсуває всю таблицю по-різному в
+// кожній мові.
+.table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  width: 16%;
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  width: 32%;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  width: 26%;
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+  width: 22%;
+}
+
+.table th {
+  position: sticky;
+  top: 0;
+  text-align: left;
+  padding: 14px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: $color-text;
+  background-color: #fff;
+  border-bottom: 1px solid $color-border;
+}
+
+.table td {
+  padding: 14px 12px;
+  color: $color-text;
+  border-bottom: 1px solid $color-border;
+}
+
+.fillerRow td {
+  color: transparent;
+}
+
+.messageCell {
+  text-align: center;
+  color: $color-text-secondary;
+  padding: 24px 12px;
+}
+
+.table td.amountExpense {
+  font-weight: 600;
+  color: $color-danger;
+  padding-right: 4px;
+}
+
+.table td.amountIncome {
+  font-weight: 600;
+  color: $color-success;
+  padding-right: 4px;
+}
+
+.table th:last-child,
+.table td:last-child {
+  width: 40px;
+  padding-left: 4px;
+}
+
+.deleteBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: $color-text-secondary;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease;
+
+  .table tr:hover & {
+    opacity: 1;
+  }
+
+  &:hover {
+    color: $color-danger;
+  }
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.cardMessage {
+  text-align: center;
+  color: $color-text-secondary;
+  padding: 24px 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 0;
+  border-bottom: 1px solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: $color-text;
+}
+
+.cardRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.cardAmountExpense {
+  font-size: 13px;
+  font-weight: 600;
+  color: $color-danger;
+  white-space: nowrap;
+}
+
+.cardAmountIncome {
+  font-size: 13px;
+  font-weight: 600;
+  color: $color-success;
+  white-space: nowrap;
+}
+
+.cardDeleteBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: $color-text-secondary;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-danger;
+  }
+}
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: $color-text-secondary;
+}

@@ -1,0 +1,88 @@
+// InvestIQ API — Prisma schema
+// Money is always Decimal (never Float) to avoid floating-point rounding
+// errors. Dates are always DateTime in UTC — the dd.mm.yyyy string format
+// used by the frontend is converted at the DTO boundary (see
+// src/expenses/dto, src/income/dto), never stored as a string.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Category values are stored as clean, portable enum identifiers rather
+// than the Ukrainian labels the frontend displays (Prisma enum members
+// can't contain apostrophes/commas/spaces, e.g. "Здоров'я", "Комуналка,
+// зв'язок"). The identifier <-> Ukrainian-label mapping lives at the API
+// boundary (src/expenses/expense-category.ts, src/income/income-category.ts)
+// so the JSON the frontend sends/receives still uses the exact labels it
+// already has in EXPENSE_CATEGORIES / INCOME_CATEGORIES.
+enum ExpenseCategory {
+  TRANSPORT
+  PRODUCTS
+  HEALTH
+  ALCOHOL
+  ENTERTAINMENT
+  HOME
+  ELECTRONICS
+  UTILITIES
+  SPORT_HOBBY
+  EDUCATION
+  OTHER
+}
+
+enum IncomeCategory {
+  SALARY
+  FREELANCE
+  GIFT
+  INVESTMENTS
+  OTHER
+}
+
+model User {
+  id                 String   @id @default(uuid())
+  email              String   @unique
+  passwordHash       String
+  name               String
+  startingBalance    Decimal  @default(0) @db.Decimal(14, 2)
+  isBalanceConfirmed Boolean  @default(false)
+  refreshTokenHash   String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  expenses Expense[]
+  incomes  Income[]
+
+  @@map("users")
+}
+
+model Expense {
+  id          String          @id @default(uuid())
+  userId      String
+  user        User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  description String
+  category    ExpenseCategory
+  amount      Decimal         @db.Decimal(14, 2)
+  date        DateTime
+  createdAt   DateTime        @default(now())
+
+  @@index([userId, date])
+  @@map("expenses")
+}
+
+model Income {
+  id          String         @id @default(uuid())
+  userId      String
+  user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  description String
+  category    IncomeCategory
+  amount      Decimal        @db.Decimal(14, 2)
+  date        DateTime
+  createdAt   DateTime       @default(now())
+
+  @@index([userId, date])
+  @@map("incomes")
+}

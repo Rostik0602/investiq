@@ -1,0 +1,22 @@
+@use '../../shared/styles/variables' as *;
+@use '../../shared/styles/mixins' as *;
+
+.page {
+  min-height: 100%;
+  background-color: $color-bg;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 20px 60px;
+
+  @include tablet {
+    padding: 32px 40px 60px;
+  }
+
+  @include desktop {
+    padding: 32px 64px 60px;
+  }
+}

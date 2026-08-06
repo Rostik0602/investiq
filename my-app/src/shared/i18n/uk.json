@@ -1,0 +1,160 @@
+{
+  "common": {
+    "currency": "грн.",
+    "pleaseWait": "Зачекайте..."
+  },
+  "language": {
+    "en": "EN",
+    "uk": "UA"
+  },
+  "auth": {
+    "subtitle": "SMART FINANCE",
+    "googleHint": "Ви можете авторизуватися за допомогою акаунта Google",
+    "emailHint": "Або увійти за допомогою ел. пошти та паролю після реєстрації",
+    "google": "Google",
+    "emailLabel": "Електронна пошта:",
+    "emailPlaceholder": "your@email.com",
+    "passwordLabel": "Пароль:",
+    "passwordPlaceholder": "Пароль",
+    "login": "Увійти",
+    "register": "Реєстрація",
+    "invalidCredentials": "Невірний email або пароль",
+    "registerFailed": "Не вдалося зареєструватися"
+  },
+  "userMenu": {
+    "defaultName": "User Name",
+    "logout": "Вийти",
+    "logoutAria": "Вийти"
+  },
+  "notifications": {
+    "loggedOut": "Ви вийшли з акаунту"
+  },
+  "dashboard": {
+    "tabs": {
+      "expenses": "Витрати",
+      "income": "Дохід"
+    },
+    "addTransactionAria": "Додати транзакцію"
+  },
+  "balance": {
+    "label": "Баланс:",
+    "confirm": "Підтвердити",
+    "changeAria": "Змінити баланс",
+    "cancelEditAria": "Скасувати редагування",
+    "closeAria": "Закрити",
+    "newBalance": "Новий баланс",
+    "placeholder": "00.00 UAH",
+    "loadError": "Не вдалося завантажити баланс",
+    "saveError": "Не вдалося встановити баланс",
+    "goToCalculations": "Перейти до розрахунків"
+  },
+  "onboarding": {
+    "title": "Привіт! Для початку роботи внесіть свій поточний баланс рахунку!",
+    "subtitle": "Ви не можете витрачати гроші, поки їх у Вас немає :)"
+  },
+  "transactionForm": {
+    "expenseDescriptionPlaceholder": "Опис товару",
+    "incomeDescriptionPlaceholder": "Опис доходу",
+    "expenseCategoryPlaceholder": "Категорія товару",
+    "incomeCategoryPlaceholder": "Категорія доходу",
+    "submit": "Ввести",
+    "clear": "Очистити",
+    "expenseSaveError": "Не вдалося зберегти витрату",
+    "incomeSaveError": "Не вдалося зберегти дохід"
+  },
+  "table": {
+    "date": "Дата",
+    "description": "Опис",
+    "category": "Категорія",
+    "amount": "Сума",
+    "deleteAria": "Видалити"
+  },
+  "expenseTable": {
+    "loading": "Завантаження витрат...",
+    "error": "Не вдалося завантажити витрати",
+    "empty": "Витрат ще немає — додайте першу вище",
+    "deleteError": "Не вдалося видалити витрату"
+  },
+  "incomeTable": {
+    "loading": "Завантаження доходів...",
+    "error": "Не вдалося завантажити доходи",
+    "empty": "Доходів ще немає — додайте перший вище",
+    "deleteError": "Не вдалося видалити дохід"
+  },
+  "summaryPanel": {
+    "title": "Зведення",
+    "loading": "Завантаження...",
+    "error": "Не вдалося завантажити зведення",
+    "empty": "Немає даних"
+  },
+  "addTransactionPage": {
+    "backAria": "Назад"
+  },
+  "calculations": {
+    "backToHome": "Повернутись на головну",
+    "period": {
+      "label": "Поточний період",
+      "prevAria": "Попередній місяць",
+      "nextAria": "Наступний місяць"
+    },
+    "summaryBar": {
+      "expenses": "Витрати:",
+      "income": "Доходи:",
+      "error": "Не вдалося завантажити суми за період"
+    },
+    "categoryGrid": {
+      "loading": "Завантаження категорій...",
+      "error": "Не вдалося завантажити категорії",
+      "toggleAria": "Перемкнути тип",
+      "type": {
+        "expenses": "Витрати",
+        "income": "Доходи"
+      }
+    },
+    "categoryChart": {
+      "loading": "Завантаження даних...",
+      "error": "Не вдалося завантажити дані для графіка",
+      "emptyExpenses": "Немає витрат за обраний період",
+      "emptyIncome": "Немає доходів за обраний період"
+    }
+  },
+  "months": {
+    "1": "Січень",
+    "2": "Лютий",
+    "3": "Березень",
+    "4": "Квітень",
+    "5": "Травень",
+    "6": "Червень",
+    "7": "Липень",
+    "8": "Серпень",
+    "9": "Вересень",
+    "10": "Жовтень",
+    "11": "Листопад",
+    "12": "Грудень"
+  },
+  "categories": {
+    "expense": {
+      "transport": "Транспорт",
+      "products": "Продукти",
+      "health": "Здоров'я",
+      "alcohol": "Алкоголь",
+      "entertainment": "Розваги",
+      "home": "Все для дому",
+      "electronics": "Техніка",
+      "utilities": "Комуналка, зв'язок",
+      "sportHobby": "Спорт, хобі",
+      "education": "Навчання",
+      "other": "Інше"
+    },
+    "income": {
+      "salary": "Зарплата",
+      "freelance": "Фріланс",
+      "gift": "Подарунок",
+      "investments": "Інвестиції",
+      "other": "Інше"
+    }
+  },
+  "notification": {
+    "closeAria": "Закрити"
+  }
+}

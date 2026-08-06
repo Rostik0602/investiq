@@ -1,0 +1,62 @@
+@use '../../../../shared/styles/variables' as *;
+@use '../../../../shared/styles/mixins' as *;
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.name {
+  display: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: $color-text;
+
+  @include tablet {
+    display: inline;
+  }
+}
+
+// min-width — "Log out" проти "Вийти" не повинні змінювати ширину .userMenu,
+// інакше блок (пришпилений до правого краю Header через margin-left:auto)
+// зсувається по горизонталі при перемиканні мови.
+.logoutBtn {
+  display: none;
+  min-width: 52px;
+  background: none;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: $color-text-secondary;
+  text-decoration: underline;
+  cursor: pointer;
+  text-align: right;
+
+  @include tablet {
+    display: inline-block;
+  }
+
+  &:hover {
+    color: $color-text;
+  }
+}
+
+.logoutIconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 4px;
+  color: $color-text-secondary;
+  cursor: pointer;
+
+  @include tablet {
+    display: none;
+  }
+
+  &:hover {
+    color: $color-text;
+  }
+}

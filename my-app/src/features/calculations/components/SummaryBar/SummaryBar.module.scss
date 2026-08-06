@@ -1,0 +1,78 @@
+@use '../../../../shared/styles/variables' as *;
+@use '../../../../shared/styles/mixins' as *;
+
+.bar {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 20px 0;
+  background-color: #fff;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  font-size: 14px;
+
+  @include tablet {
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding: 18px 24px;
+    flex-wrap: wrap;
+  }
+}
+
+.item {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0 16px;
+
+  @include tablet {
+    flex: none;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
+    padding: 0;
+  }
+}
+
+.divider {
+  width: 1px;
+  align-self: stretch;
+  background-color: $color-border;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+// На tablet+ .bar центрується через justify-content:center, а .item стає
+// flex:none (ширина по контенту) — якщо ширина лейбла змінюється між мовами
+// ("Expenses:" проти "Витрати:"), змінюється сумарна ширина .bar, і весь
+// блок візуально зсувається по горизонталі. На mobile .item — flex:1, тому
+// ширина лейбла на розкладку не впливає (min-width там не потрібен).
+.label {
+  color: $color-text-secondary;
+
+  @include tablet {
+    display: inline-block;
+    min-width: 70px;
+  }
+}
+
+.expense {
+  font-weight: 700;
+  color: $color-danger;
+}
+
+.income {
+  font-weight: 700;
+  color: $color-success;
+}
+
+.errorState {
+  width: 100%;
+  text-align: center;
+  color: $color-text-secondary;
+}

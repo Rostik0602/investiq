@@ -1,0 +1,50 @@
+@use '../../styles/variables' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.input {
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  border-radius: $radius-sm;
+  background-color: $color-input-bg;
+  font-size: 14px;
+  color: $color-text;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &::placeholder {
+    color: #a2a3ad;
+  }
+
+  &:focus {
+    border-color: $color-primary;
+  }
+}
+
+// .input.inputError (не просто .inputError) + !important: контексти на
+// кшталт ExpenseForm/IncomeForm's .fieldInput/.pageInput/.amountInput
+// форсують border через !important (щоб перекрити прозорий border за
+// замовчуванням), і без вищої специфічності + власного !important тут
+// підсвічування помилки просто програвало б і ніколи не було б видно.
+.input.inputError {
+  border-color: $color-danger !important;
+}
+
+// Для полів усередині заокругленої групи (.pageFieldsGroup) — фон замість
+// рамки, щоб не перетинатись із заокругленими кутами групи й лініями-
+// роздільниками між полями.
+.input.inputErrorBg {
+  background-color: rgba($color-danger, 0.1) !important;
+}

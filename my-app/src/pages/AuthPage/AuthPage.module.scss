@@ -1,0 +1,58 @@
+@use '../../shared/styles/variables' as *;
+@use '../../shared/styles/mixins' as *;
+
+.page {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 32px 20px 60px;
+
+  @include tablet {
+    padding: 48px 40px 80px;
+  }
+
+  @include desktop {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    padding: 0 64px;
+    min-height: calc(100vh - 76px);
+  }
+}
+
+.branding {
+  text-align: center;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+
+  @include tablet {
+    font-size: 64px;
+  }
+
+  @include desktop {
+    font-size: 72px;
+  }
+}
+
+.subtitle {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: $color-text-secondary;
+}

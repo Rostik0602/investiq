@@ -1,0 +1,96 @@
+@use '../../../../shared/styles/variables' as *;
+
+.card {
+  background-color: #fff;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  padding: 24px 12px 12px;
+}
+
+.chartArea {
+  position: relative;
+  width: 100%;
+}
+
+.gridlines {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-image: repeating-linear-gradient(
+    to top,
+    $color-border 0,
+    $color-border 1px,
+    transparent 1px,
+    transparent 25%
+  );
+  pointer-events: none;
+}
+
+.chartWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+}
+
+.empty {
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 14px;
+  color: $color-text-secondary;
+}
+
+.mobileCard {
+  background-color: #fff;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  padding: 24px 20px;
+}
+
+.barList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.barRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.barHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.barName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.barValue {
+  flex-shrink: 0;
+  color: $color-text-secondary;
+}
+
+.barFill {
+  height: 14px;
+  min-width: 14px;
+  border-radius: 999px;
+  // Той самий приглушений відтінок, що й MUTED у CategoryChart.tsx —
+  // для десктопного графіка
+  background-color: #ffd0af;
+}
+
+.barFillPrimary {
+  background-color: $color-primary;
+}

@@ -1,0 +1,206 @@
+@use '../../../../shared/styles/variables' as *;
+@use '../../../../shared/styles/mixins' as *;
+
+.form {
+  display: none;
+
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    // flex-start, не center: усі поля тут рівно 48px, тому вирівнювання
+    // збігається з center, поки не з'явиться "Обов'язкове поле" під одним
+    // із них — тоді center підняв би інпут, щоб перецентрувати вищий
+    // елемент. flex-start фіксує верхній край, і текст помилки просто
+    // дописується знизу, нічого не зсуваючи.
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 0 0 20px;
+    border-bottom: 1px solid $color-border;
+    margin-bottom: 12px;
+  }
+
+  @include desktop {
+    flex-wrap: nowrap;
+  }
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  flex-shrink: 0;
+  font-size: 13px;
+  color: $color-text-secondary;
+  white-space: nowrap;
+}
+
+.description {
+  width: 100%;
+  min-width: 0;
+
+  @include tablet {
+    width: auto;
+    flex: 2 1 180px;
+  }
+}
+
+.category {
+  width: 100%;
+  min-width: 0;
+
+  @include tablet {
+    width: 200px;
+    flex: 0 0 200px;
+  }
+}
+
+.fieldInput {
+  background-color: #fff !important;
+  border: 1px solid $color-border !important;
+}
+
+.amount {
+  width: 100%;
+  min-width: 0;
+
+  @include tablet {
+    width: 130px;
+    flex: 0 0 130px;
+  }
+}
+
+// Іконка календаря лежить ПОВЕРХ інпута (position:absolute), а не в
+// окремому боксі поруч — так само, як на макеті: без власного фону,
+// без border-left, без розширення поля. Ніякого overflow:hidden тут
+// немає навмисно: попередня версія з overflow:hidden на контейнері
+// фіксованої висоти обрізала текст помилки валідації ("Сума має бути
+// більше 0"), коли він з'являвся під інпутом.
+.amountFieldWrap {
+  position: relative;
+  width: 100%;
+}
+
+.amountInput {
+  width: 100% !important;
+  padding-right: 40px !important;
+  border-radius: 999px !important;
+  background-color: #fff !important;
+  border: 1px solid $color-border !important;
+}
+
+.calcIcon {
+  position: absolute;
+  top: 24px;
+  right: 12px;
+  transform: translateY(-50%);
+  display: flex;
+  color: $color-text-secondary;
+  pointer-events: none;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+
+  @include tablet {
+    width: 100%;
+    justify-content: center;
+  }
+
+  @include desktop {
+    width: auto;
+    justify-content: flex-start;
+    margin-left: auto;
+  }
+}
+
+// "Ввести"/"Add" та "Очистити"/"Clear" мають різну довжину — без min-width
+// кнопки змінюють розмір при перемиканні мови.
+.submitBtn {
+  min-width: 110px;
+}
+
+.clearBtn {
+  min-width: 110px;
+  background-color: transparent !important;
+
+  &:hover:not(:disabled) {
+    background-color: transparent !important;
+    color: $color-primary !important;
+  }
+}
+
+.formPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.pageFieldsGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+  border-radius: $radius-lg;
+  overflow: hidden;
+
+  > div {
+    border-bottom: 1px solid $color-border;
+  }
+
+  > div:last-child {
+    border-bottom: none;
+  }
+}
+
+.pageInput {
+  height: 52px !important;
+  // border:none (а не border:1px solid transparent) означав, що
+  // .input.inputError взагалі не мав на чому намалювати червону рамку —
+  // border-style лишався none, і border-color нізвідки було взяти.
+  // Прозорий бордер тієї ж товщини виглядає ідентично, поки немає
+  // помилки, і дає можливість підсвітити поле, коли вона з'являється.
+  border: 1px solid transparent !important;
+  border-radius: 0 !important;
+  background-color: #fff !important;
+}
+
+.pageAmountGroup {
+  display: flex;
+  align-items: stretch;
+  height: 48px;
+  border: 1px solid $color-border;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.pageAmountInput {
+  height: 48px !important;
+  width: 160px !important;
+  border: 1px solid transparent !important;
+  border-radius: 0 !important;
+  background-color: #fff !important;
+  text-align: center;
+}
+
+.calcBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  background-color: $color-input-bg;
+  border-left: 1px solid $color-border;
+  color: $color-text;
+}
+
+.pageActions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}

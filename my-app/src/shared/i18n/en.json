@@ -1,0 +1,160 @@
+{
+  "common": {
+    "currency": "USD",
+    "pleaseWait": "Please wait..."
+  },
+  "language": {
+    "en": "EN",
+    "uk": "UA"
+  },
+  "auth": {
+    "subtitle": "SMART FINANCE",
+    "googleHint": "You can sign in using your Google account",
+    "emailHint": "Or sign in using email and password after registering",
+    "google": "Google",
+    "emailLabel": "Email:",
+    "emailPlaceholder": "your@email.com",
+    "passwordLabel": "Password:",
+    "passwordPlaceholder": "Password",
+    "login": "Log in",
+    "register": "Register",
+    "invalidCredentials": "Invalid email or password",
+    "registerFailed": "Registration failed"
+  },
+  "userMenu": {
+    "defaultName": "User Name",
+    "logout": "Log out",
+    "logoutAria": "Log out"
+  },
+  "notifications": {
+    "loggedOut": "You have logged out"
+  },
+  "dashboard": {
+    "tabs": {
+      "expenses": "Expenses",
+      "income": "Income"
+    },
+    "addTransactionAria": "Add transaction"
+  },
+  "balance": {
+    "label": "Balance:",
+    "confirm": "Confirm",
+    "changeAria": "Change balance",
+    "cancelEditAria": "Cancel editing",
+    "closeAria": "Close",
+    "newBalance": "New balance",
+    "placeholder": "00.00 USD",
+    "loadError": "Failed to load balance",
+    "saveError": "Failed to set balance",
+    "goToCalculations": "Go to Calculations"
+  },
+  "onboarding": {
+    "title": "Hi! To get started, enter your current account balance!",
+    "subtitle": "You can't spend money you don't have yet :)"
+  },
+  "transactionForm": {
+    "expenseDescriptionPlaceholder": "Item description",
+    "incomeDescriptionPlaceholder": "Income description",
+    "expenseCategoryPlaceholder": "Item category",
+    "incomeCategoryPlaceholder": "Income category",
+    "submit": "Add",
+    "clear": "Clear",
+    "expenseSaveError": "Failed to save expense",
+    "incomeSaveError": "Failed to save income"
+  },
+  "table": {
+    "date": "Date",
+    "description": "Description",
+    "category": "Category",
+    "amount": "Amount",
+    "deleteAria": "Delete"
+  },
+  "expenseTable": {
+    "loading": "Loading expenses...",
+    "error": "Failed to load expenses",
+    "empty": "No expenses yet — add your first one above",
+    "deleteError": "Failed to delete expense"
+  },
+  "incomeTable": {
+    "loading": "Loading income...",
+    "error": "Failed to load income",
+    "empty": "No income yet — add your first one above",
+    "deleteError": "Failed to delete income"
+  },
+  "summaryPanel": {
+    "title": "Summary",
+    "loading": "Loading...",
+    "error": "Failed to load summary",
+    "empty": "No data yet"
+  },
+  "addTransactionPage": {
+    "backAria": "Back"
+  },
+  "calculations": {
+    "backToHome": "Back to home",
+    "period": {
+      "label": "Current period",
+      "prevAria": "Previous month",
+      "nextAria": "Next month"
+    },
+    "summaryBar": {
+      "expenses": "Expenses:",
+      "income": "Income:",
+      "error": "Failed to load totals for the period"
+    },
+    "categoryGrid": {
+      "loading": "Loading categories...",
+      "error": "Failed to load categories",
+      "toggleAria": "Switch type",
+      "type": {
+        "expenses": "Expenses",
+        "income": "Income"
+      }
+    },
+    "categoryChart": {
+      "loading": "Loading data...",
+      "error": "Failed to load chart data",
+      "emptyExpenses": "No expenses for the selected period",
+      "emptyIncome": "No income for the selected period"
+    }
+  },
+  "months": {
+    "1": "January",
+    "2": "February",
+    "3": "March",
+    "4": "April",
+    "5": "May",
+    "6": "June",
+    "7": "July",
+    "8": "August",
+    "9": "September",
+    "10": "October",
+    "11": "November",
+    "12": "December"
+  },
+  "categories": {
+    "expense": {
+      "transport": "Transport",
+      "products": "Groceries",
+      "health": "Health",
+      "alcohol": "Alcohol",
+      "entertainment": "Entertainment",
+      "home": "Home goods",
+      "electronics": "Electronics",
+      "utilities": "Utilities, connection",
+      "sportHobby": "Sport, hobby",
+      "education": "Education",
+      "other": "Other"
+    },
+    "income": {
+      "salary": "Salary",
+      "freelance": "Freelance",
+      "gift": "Gift",
+      "investments": "Investments",
+      "other": "Other"
+    }
+  },
+  "notification": {
+    "closeAria": "Close"
+  }
+}

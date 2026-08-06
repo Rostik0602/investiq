@@ -1,0 +1,48 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: investiq
+    ports:
+      - '5432:5432'
+    volumes:
+      - investiq_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d investiq']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # One-shot: applies migrations, then exits. `api` waits for this to
+  # succeed before starting. Reads DATABASE_URL etc. straight from .env —
+  # that file's DATABASE_URL must use host `postgres` (the compose
+  # service name), not `localhost`.
+  migrate:
+    build:
+      context: .
+      target: build
+    command: npx prisma migrate deploy
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  api:
+    build:
+      context: .
+      target: runtime
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+volumes:
+  investiq_postgres_data:

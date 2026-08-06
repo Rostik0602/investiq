@@ -1,0 +1,80 @@
+@use '../../../../shared/styles/variables' as *;
+@use '../../../../shared/styles/mixins' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.label {
+  font-size: 9px;
+  color: $color-text-secondary;
+
+  @include tablet {
+    font-size: 11px;
+  }
+
+  @include desktop {
+    font-size: 12px;
+  }
+}
+
+.switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+
+  @include tablet {
+    gap: 4px;
+  }
+
+  @include desktop {
+    gap: 6px;
+  }
+}
+
+.arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: $color-primary;
+  cursor: pointer;
+  padding: 2px;
+
+  &:hover {
+    color: $color-primary-hover;
+  }
+}
+
+// Фіксована ширина (а не auto) — щоб довжина назви місяця в поточній мові
+// (наприклад, "September 2026" проти "Вересень 2026") не змінювала ширину
+// .switcher і не зсувала стрілки при switchі мови.
+.period {
+  display: inline-block;
+  width: 92px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $color-text;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @include tablet {
+    width: 118px;
+    font-size: 13px;
+  }
+
+  @include desktop {
+    width: 128px;
+    font-size: 14px;
+  }
+}
