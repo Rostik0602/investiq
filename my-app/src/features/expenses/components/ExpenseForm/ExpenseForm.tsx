@@ -159,7 +159,7 @@ export const ExpenseForm = ({ standalone = false, onDone }: ExpenseFormProps = {
           name="category"
           placeholder={t('transactionForm.expenseCategoryPlaceholder')}
           className={styles.fieldInput}
-          options={EXPENSE_CATEGORIES.map((c) => ({ value: c, label: c }))}
+          options={categoryOptions}
           value={formik.values.category}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}

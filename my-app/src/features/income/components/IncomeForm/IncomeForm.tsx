@@ -159,7 +159,7 @@ export const IncomeForm = ({ standalone = false, onDone }: IncomeFormProps = {})
           name="category"
           placeholder={t('transactionForm.incomeCategoryPlaceholder')}
           className={styles.fieldInput}
-          options={INCOME_CATEGORIES.map((c) => ({ value: c, label: c }))}
+          options={categoryOptions}
           value={formik.values.category}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
