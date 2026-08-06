@@ -1,10 +1,10 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import en from './en.json';
-import uk from './uk.json';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import en from "./en.json";
+import uk from "./uk.json";
 
-export const LANGUAGE_STORAGE_KEY = 'lang';
-export const DEFAULT_LANGUAGE = 'en';
+export const LANGUAGE_STORAGE_KEY = "lang";
+export const DEFAULT_LANGUAGE = "en";
 
 const getStoredLanguage = (): string => {
   try {
@@ -24,16 +24,10 @@ void i18n.use(initReactI18next).init({
   interpolation: { escapeValue: false },
 });
 
-// Персистимо вибір мови окремо від init — languageChanged стріляє і при
-// ручному i18n.changeLanguage() з LanguageSwitcher, і зберігає значення
-// для наступного відкриття сторінки.
-i18n.on('languageChanged', (lng) => {
+i18n.on("languageChanged", (lng) => {
   try {
     localStorage.setItem(LANGUAGE_STORAGE_KEY, lng);
-  } catch {
-    // localStorage недоступний (приватний режим тощо) — мова просто не
-    // збережеться між сесіями, застосунок продовжує працювати як є.
-  }
+  } catch {}
 });
 
 export default i18n;

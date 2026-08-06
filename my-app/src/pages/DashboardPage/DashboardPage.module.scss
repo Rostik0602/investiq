@@ -1,5 +1,5 @@
-@use '../../shared/styles/variables' as *;
-@use '../../shared/styles/mixins' as *;
+@use "../../shared/styles/variables" as *;
+@use "../../shared/styles/mixins" as *;
 
 .page {
   display: flex;
@@ -29,8 +29,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-  // На mobile список транзакцій притискається до низу (над фіксованою
-  // панеллю Витрати/Дохід), а не висить одразу під балансом
+
   margin-top: auto;
 
   @include tablet {

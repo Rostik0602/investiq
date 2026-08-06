@@ -1,6 +1,6 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
-type NotificationType = 'info' | 'success' | 'error';
+type NotificationType = "info" | "success" | "error";
 
 interface NotificationState {
   message: string | null;
@@ -10,20 +10,20 @@ interface NotificationState {
 
 const initialState: NotificationState = {
   message: null,
-  type: 'info',
+  type: "info",
   visible: false,
 };
 
 const notificationSlice = createSlice({
-  name: 'notification',
+  name: "notification",
   initialState,
   reducers: {
     showNotification: (
       state,
-      action: PayloadAction<{ message: string; type?: NotificationType }>
+      action: PayloadAction<{ message: string; type?: NotificationType }>,
     ) => {
       state.message = action.payload.message;
-      state.type = action.payload.type ?? 'info';
+      state.type = action.payload.type ?? "info";
       state.visible = true;
     },
     hideNotification: (state) => {

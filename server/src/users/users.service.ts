@@ -7,8 +7,7 @@ import { SafeUserDto } from './dto/safe-user.dto';
 export class UsersService {
   constructor(private readonly prisma: PrismaService) {}
 
-  // Full row, including passwordHash — for internal auth use only
-  // (password comparison at login). Never return this directly.
+
   findByEmail(email: string): Promise<User | null> {
     return this.prisma.user.findUnique({ where: { email } });
   }

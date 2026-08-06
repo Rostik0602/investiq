@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use "../../styles/variables" as *;
 
 .wrapper {
   display: flex;
@@ -35,17 +35,10 @@
   color: #a2a3ad;
 }
 
-// .select.selectError (не просто .selectError) + !important: той самий
-// .fieldInput форсує border через !important на цьому ж елементі
-// (категорія товару/доходу теж рендериться через Select) — без вищої
-// специфічності + власного !important підсвічування помилки програвало б.
 .select.selectError {
   border-color: $color-danger !important;
 }
 
-// Для полів усередині заокругленої групи (.pageFieldsGroup) — фон замість
-// рамки, щоб не перетинатись із заокругленими кутами групи й лініями-
-// роздільниками між полями.
 .select.selectErrorBg {
   background-color: rgba($color-danger, 0.1) !important;
 }

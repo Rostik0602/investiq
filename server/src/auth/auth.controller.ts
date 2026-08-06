@@ -11,8 +11,7 @@ import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
 import { AuthenticatedUser, AuthenticatedUserWithRefreshToken } from './types';
 
-// Throttle override for the two brute-forceable endpoints — tighter than
-// the app-wide default configured in ThrottlerModule.forRoot().
+
 const AUTH_THROTTLE = { default: { limit: 5, ttl: 60_000 } };
 
 @ApiTags('auth')

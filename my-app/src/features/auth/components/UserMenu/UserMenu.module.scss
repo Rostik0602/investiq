@@ -1,5 +1,5 @@
-@use '../../../../shared/styles/variables' as *;
-@use '../../../../shared/styles/mixins' as *;
+@use "../../../../shared/styles/variables" as *;
+@use "../../../../shared/styles/mixins" as *;
 
 .userMenu {
   display: flex;
@@ -18,9 +18,6 @@
   }
 }
 
-// min-width — "Log out" проти "Вийти" не повинні змінювати ширину .userMenu,
-// інакше блок (пришпилений до правого краю Header через margin-left:auto)
-// зсувається по горизонталі при перемиканні мови.
 .logoutBtn {
   display: none;
   min-width: 52px;

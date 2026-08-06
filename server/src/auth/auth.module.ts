@@ -12,9 +12,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
   imports: [
     UsersModule,
     PassportModule,
-    // Registered async purely to read JWT_SECRET/expiry from ConfigService;
-    // AuthService overrides secret/expiresIn per-call anyway (access vs
-    // refresh use different secrets), so these are just safe defaults.
+
     JwtModule.registerAsync({
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({

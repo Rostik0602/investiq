@@ -1,5 +1,5 @@
-@use '../../../../shared/styles/variables' as *;
-@use '../../../../shared/styles/mixins' as *;
+@use "../../../../shared/styles/variables" as *;
+@use "../../../../shared/styles/mixins" as *;
 
 .panel {
   display: none;
@@ -17,8 +17,7 @@
   @include desktop {
     width: 220px;
     flex-shrink: 0;
-    // Верхній відступ підібраний так, щоб заголовок «Зведення» опинився
-    // на одній лінії з рядком заголовків таблиці (Дата/Опис/…), а не з рядком форми
+
     padding: 105px 20px 24px;
   }
 }

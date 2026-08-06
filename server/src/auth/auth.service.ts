@@ -38,8 +38,7 @@ export class AuthService {
 
   async login(dto: LoginDto): Promise<AuthResponseDto> {
     const user = await this.usersService.findByEmail(dto.email);
-    // Same error for "no such user" and "wrong password" — don't leak
-    // which one it was.
+
     if (!user) {
       throw new UnauthorizedException('Invalid email or password');
     }
@@ -60,8 +59,7 @@ export class AuthService {
 
     const tokenMatches = await bcrypt.compare(refreshToken, user.refreshTokenHash);
     if (!tokenMatches) {
-      // Signed refresh token that doesn't match the stored hash means it
-      // was already rotated (reused after logout/refresh) — revoke.
+
       await this.usersService.updateRefreshTokenHash(userId, null);
       throw new UnauthorizedException('Access denied');
     }

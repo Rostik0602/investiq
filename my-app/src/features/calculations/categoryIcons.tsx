@@ -1,4 +1,4 @@
-import type { LucideIcon } from 'lucide-react';
+import type { LucideIcon } from "lucide-react";
 import {
   ShoppingBasket,
   Wine,
@@ -15,7 +15,7 @@ import {
   Laptop,
   Gift,
   TrendingUp,
-} from 'lucide-react';
+} from "lucide-react";
 
 const CATEGORY_ICONS: Record<string, LucideIcon> = {
   Продукти: ShoppingBasket,
@@ -23,10 +23,10 @@ const CATEGORY_ICONS: Record<string, LucideIcon> = {
   Розваги: PartyPopper,
   "Здоров'я": HeartHandshake,
   Транспорт: Car,
-  'Все для дому': Sofa,
+  "Все для дому": Sofa,
   Техніка: Wrench,
   "Комуналка, зв'язок": Receipt,
-  'Спорт, хобі': Dumbbell,
+  "Спорт, хобі": Dumbbell,
   Навчання: BookOpen,
   Зарплата: Wallet,
   Фріланс: Laptop,
@@ -35,4 +35,5 @@ const CATEGORY_ICONS: Record<string, LucideIcon> = {
   Інше: MoreHorizontal,
 };
 
-export const getCategoryIcon = (category: string): LucideIcon => CATEGORY_ICONS[category] ?? MoreHorizontal;
+export const getCategoryIcon = (category: string): LucideIcon =>
+  CATEGORY_ICONS[category] ?? MoreHorizontal;

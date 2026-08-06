@@ -1,9 +1,9 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
-import styles from './Button.module.scss';
-import clsx from 'clsx';
+import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { useTranslation } from "react-i18next";
+import styles from "./Button.module.scss";
+import clsx from "clsx";
 
-type ButtonVariant = 'primary' | 'secondary' | 'outline';
+type ButtonVariant = "primary" | "secondary" | "outline";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -12,7 +12,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button = ({
-  variant = 'primary',
+  variant = "primary",
   isLoading = false,
   disabled,
   children,
@@ -27,7 +27,7 @@ export const Button = ({
       disabled={disabled || isLoading}
       {...rest}
     >
-      {isLoading ? t('common.pleaseWait') : children}
+      {isLoading ? t("common.pleaseWait") : children}
     </button>
   );
 };

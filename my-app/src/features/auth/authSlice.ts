@@ -1,5 +1,5 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { AuthResponse, AuthUser } from './types';
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import type { AuthResponse, AuthUser } from "./types";
 
 export interface AuthState {
   accessToken: string | null;
@@ -7,9 +7,9 @@ export interface AuthState {
   user: AuthUser | null;
 }
 
-const ACCESS_TOKEN_KEY = 'accessToken';
-const REFRESH_TOKEN_KEY = 'refreshToken';
-const USER_KEY = 'user';
+const ACCESS_TOKEN_KEY = "accessToken";
+const REFRESH_TOKEN_KEY = "refreshToken";
+const USER_KEY = "user";
 
 const clearStoredAuth = () => {
   localStorage.removeItem(ACCESS_TOKEN_KEY);
@@ -24,10 +24,17 @@ const readInitialState = (): AuthState => {
     const userRaw = localStorage.getItem(USER_KEY);
 
     if (accessToken && refreshToken && userRaw) {
-      return { accessToken, refreshToken, user: JSON.parse(userRaw) as AuthUser };
+      return {
+        accessToken,
+        refreshToken,
+        user: JSON.parse(userRaw) as AuthUser,
+      };
     }
   } catch (error) {
-    console.error('[Auth Init] Виявлено невалідні дані авторизації в localStorage, очищую:', error);
+    console.error(
+      "[Auth Init] Виявлено невалідні дані авторизації в localStorage, очищую:",
+      error,
+    );
   }
 
   clearStoredAuth();
@@ -37,7 +44,7 @@ const readInitialState = (): AuthState => {
 const initialState: AuthState = readInitialState();
 
 const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {
     setCredentials: (state, action: PayloadAction<AuthResponse>) => {

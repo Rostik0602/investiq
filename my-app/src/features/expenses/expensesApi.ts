@@ -1,5 +1,5 @@
-import { api } from '../../app/api';
-import type { ExpenseItem } from './types';
+import { api } from "../../app/api";
+import type { ExpenseItem } from "./types";
 
 export interface ExpensesQuery {
   month?: number;
@@ -22,28 +22,31 @@ export const expensesApi = api.injectEndpoints({
         if (query?.month) params.month = query.month;
         if (query?.year) params.year = query.year;
         if (query?.category) params.category = query.category;
-        return { url: '/expenses', params };
+        return { url: "/expenses", params };
       },
-      providesTags: ['Expenses'],
+      providesTags: ["Expenses"],
     }),
     addExpense: builder.mutation<ExpenseItem, CreateExpenseRequest>({
       query: (body) => ({
-        url: '/expenses',
-        method: 'POST',
+        url: "/expenses",
+        method: "POST",
         body,
       }),
-      // Баланс і статистика рахуються на бекенді з тих самих записів,
-      // тому нова витрата має "протухати" й їхній кеш теж.
-      invalidatesTags: ['Expenses', 'Balance', 'Statistics'],
+
+      invalidatesTags: ["Expenses", "Balance", "Statistics"],
     }),
     deleteExpense: builder.mutation<void, string>({
       query: (id) => ({
         url: `/expenses/${id}`,
-        method: 'DELETE',
+        method: "DELETE",
       }),
-      invalidatesTags: ['Expenses', 'Balance', 'Statistics'],
+      invalidatesTags: ["Expenses", "Balance", "Statistics"],
     }),
   }),
 });
 
-export const { useGetExpensesQuery, useAddExpenseMutation, useDeleteExpenseMutation } = expensesApi;
+export const {
+  useGetExpensesQuery,
+  useAddExpenseMutation,
+  useDeleteExpenseMutation,
+} = expensesApi;

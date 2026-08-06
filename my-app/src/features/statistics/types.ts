@@ -1,7 +1,7 @@
-import type { TransactionType } from '../calculations/types';
+import type { TransactionType } from "../calculations/types";
 
 export interface MonthlyStat {
-  month: number; // 1-12
+  month: number;
   totalExpenses: number;
   totalIncome: number;
 }

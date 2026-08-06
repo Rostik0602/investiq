@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import styles from './Notification.module.scss';
-import clsx from 'clsx';
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import styles from "./Notification.module.scss";
+import clsx from "clsx";
 
-type NotificationType = 'info' | 'success' | 'error';
+type NotificationType = "info" | "success" | "error";
 
 interface NotificationProps {
   message: string;
@@ -14,7 +14,7 @@ interface NotificationProps {
 
 export const Notification = ({
   message,
-  type = 'info',
+  type = "info",
   onClose,
   duration = 3000,
 }: NotificationProps) => {
@@ -28,7 +28,11 @@ export const Notification = ({
   return (
     <div className={clsx(styles.notification, styles[type])}>
       <span>{message}</span>
-      <button className={styles.closeBtn} onClick={onClose} aria-label={t('notification.closeAria')}>
+      <button
+        className={styles.closeBtn}
+        onClick={onClose}
+        aria-label={t("notification.closeAria")}
+      >
         ×
       </button>
     </div>

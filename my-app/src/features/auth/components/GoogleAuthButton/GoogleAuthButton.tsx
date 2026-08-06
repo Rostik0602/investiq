@@ -1,4 +1,4 @@
-import styles from './GoogleAuthButton.module.scss';
+import styles from "./GoogleAuthButton.module.scss";
 
 interface GoogleAuthButtonProps {
   onClick?: () => void;

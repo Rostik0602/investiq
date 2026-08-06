@@ -16,9 +16,7 @@ interface ErrorBody {
   path: string;
 }
 
-// Catches every thrown error (not just HttpException) so the API always
-// responds with the same shape, whether it's a validation failure, a
-// deliberate NotFoundException, or an unexpected bug.
+
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {
   private readonly logger = new Logger(HttpExceptionFilter.name);

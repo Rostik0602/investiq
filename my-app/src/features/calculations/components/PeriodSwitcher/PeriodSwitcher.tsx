@@ -1,9 +1,9 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
-import { goToPrevMonth, goToNextMonth } from '../../calculationsSlice';
-import { selectCalcMonth, selectCalcYear } from '../../selectors';
-import styles from './PeriodSwitcher.module.scss';
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { useAppDispatch, useAppSelector } from "../../../../app/hooks";
+import { goToPrevMonth, goToNextMonth } from "../../calculationsSlice";
+import { selectCalcMonth, selectCalcYear } from "../../selectors";
+import styles from "./PeriodSwitcher.module.scss";
 
 export const PeriodSwitcher = () => {
   const { t } = useTranslation();
@@ -13,13 +13,13 @@ export const PeriodSwitcher = () => {
 
   return (
     <div className={styles.wrapper}>
-      <span className={styles.label}>{t('calculations.period.label')}</span>
+      <span className={styles.label}>{t("calculations.period.label")}</span>
       <div className={styles.switcher}>
         <button
           type="button"
           className={styles.arrow}
           onClick={() => dispatch(goToPrevMonth())}
-          aria-label={t('calculations.period.prevAria')}
+          aria-label={t("calculations.period.prevAria")}
         >
           <ChevronLeft size={16} />
         </button>
@@ -32,7 +32,7 @@ export const PeriodSwitcher = () => {
           type="button"
           className={styles.arrow}
           onClick={() => dispatch(goToNextMonth())}
-          aria-label={t('calculations.period.nextAria')}
+          aria-label={t("calculations.period.nextAria")}
         >
           <ChevronRight size={16} />
         </button>

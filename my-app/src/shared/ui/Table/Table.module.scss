@@ -1,5 +1,5 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 .wrapper {
   display: none;
@@ -27,10 +27,6 @@
   }
 }
 
-// table-layout: fixed + явна ширина кожної колонки — інакше браузер сам
-// підбирає ширину колонок під найдовший текст заголовка (auto layout), і
-// "DESCRIPTION" проти короткого "ОПИС" зсуває всю таблицю по-різному в
-// кожній мові.
 .table {
   width: 100%;
   table-layout: fixed;
@@ -115,7 +111,9 @@
   color: $color-text-secondary;
   cursor: pointer;
   opacity: 0;
-  transition: opacity 0.15s ease, color 0.15s ease;
+  transition:
+    opacity 0.15s ease,
+    color 0.15s ease;
 
   .table tr:hover & {
     opacity: 1;

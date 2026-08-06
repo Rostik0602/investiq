@@ -1,4 +1,4 @@
-@use '../../../../shared/styles/variables' as *;
+@use "../../../../shared/styles/variables" as *;
 
 .hint {
   position: absolute;
@@ -17,7 +17,7 @@
   box-shadow: 0 20px 40px rgba(14, 18, 34, 0.28);
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -7px;
     left: 50%;

@@ -14,8 +14,7 @@ import { UsersModule } from './users/users.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    // App-wide default; AuthController overrides this (tighter) on
-    // /auth/register and /auth/login specifically via @Throttle().
+
     ThrottlerModule.forRoot([{ name: 'default', ttl: 60_000, limit: 100 }]),
     PrismaModule,
     UsersModule,

@@ -1,5 +1,5 @@
-@use '../../../../shared/styles/variables' as *;
-@use '../../../../shared/styles/mixins' as *;
+@use "../../../../shared/styles/variables" as *;
+@use "../../../../shared/styles/mixins" as *;
 
 .wrapper {
   display: flex;
@@ -53,9 +53,6 @@
   }
 }
 
-// Фіксована ширина (а не auto) — щоб довжина назви місяця в поточній мові
-// (наприклад, "September 2026" проти "Вересень 2026") не змінювала ширину
-// .switcher і не зсувала стрілки при switchі мови.
 .period {
   display: inline-block;
   width: 92px;

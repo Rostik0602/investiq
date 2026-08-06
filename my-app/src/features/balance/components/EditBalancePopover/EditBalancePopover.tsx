@@ -1,7 +1,7 @@
-import { X } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-import { Button } from '../../../../shared/ui/Button/Button';
-import styles from './EditBalancePopover.module.scss';
+import { X } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Button } from "../../../../shared/ui/Button/Button";
+import styles from "./EditBalancePopover.module.scss";
 
 interface EditBalancePopoverProps {
   value: string;
@@ -12,10 +12,6 @@ interface EditBalancePopoverProps {
   disabled?: boolean;
 }
 
-// Абсолютно позиційований (як OnboardingHint) — тому відкриття/закриття
-// ніколи не змінює ширину/висоту батьківського блока з балансом і не
-// зсуває нічого навколо (посилання "Повернутись на головну"/"Перейти до
-// розрахунків" тощо).
 export const EditBalancePopover = ({
   value,
   onChange,
@@ -32,19 +28,19 @@ export const EditBalancePopover = ({
         type="button"
         className={styles.closeBtn}
         onClick={onCancel}
-        aria-label={t('balance.cancelEditAria')}
+        aria-label={t("balance.cancelEditAria")}
       >
         <X size={16} strokeWidth={2} />
       </button>
 
       <label className={styles.label} htmlFor="edit-balance-input">
-        {t('balance.newBalance')}
+        {t("balance.newBalance")}
       </label>
       <input
         id="edit-balance-input"
         className={styles.input}
         type="number"
-        placeholder={t('balance.placeholder')}
+        placeholder={t("balance.placeholder")}
         value={value}
         disabled={disabled}
         onChange={(e) => onChange(e.target.value)}
@@ -59,7 +55,7 @@ export const EditBalancePopover = ({
         isLoading={isSaving}
         onClick={onSave}
       >
-        {t('balance.confirm')}
+        {t("balance.confirm")}
       </Button>
     </div>
   );

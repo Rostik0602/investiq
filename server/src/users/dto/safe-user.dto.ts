@@ -1,7 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-// What the API ever returns for a user — passwordHash and
-// refreshTokenHash never leave the service layer.
+
 export class SafeUserDto {
   @ApiProperty()
   id!: string;

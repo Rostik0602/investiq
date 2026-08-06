@@ -1,5 +1,5 @@
-import clsx from 'clsx';
-import styles from './Tabs.module.scss';
+import clsx from "clsx";
+import styles from "./Tabs.module.scss";
 
 interface TabItem {
   id: string;

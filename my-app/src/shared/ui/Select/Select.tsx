@@ -1,6 +1,6 @@
-import { type SelectHTMLAttributes } from 'react';
-import clsx from 'clsx';
-import styles from './Select.module.scss';
+import { type SelectHTMLAttributes } from "react";
+import clsx from "clsx";
+import styles from "./Select.module.scss";
 
 interface Option {
   value: string;
@@ -12,8 +12,7 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   placeholder?: string;
   error?: string;
   touched?: boolean;
-  /** Див. Input.tsx — 'background' для полів усередині .pageFieldsGroup. */
-  errorVariant?: 'border' | 'background';
+  errorVariant?: "border" | "background";
 }
 
 export const Select = ({
@@ -21,14 +20,15 @@ export const Select = ({
   placeholder,
   error,
   touched,
-  errorVariant = 'border',
+  errorVariant = "border",
   className,
   value,
   ...rest
 }: SelectProps) => {
   const showError = Boolean(touched && error);
   const isPlaceholderShown = !value;
-  const errorClassName = errorVariant === 'background' ? styles.selectErrorBg : styles.selectError;
+  const errorClassName =
+    errorVariant === "background" ? styles.selectErrorBg : styles.selectError;
 
   return (
     <div className={styles.wrapper}>
@@ -38,7 +38,7 @@ export const Select = ({
           styles.select,
           isPlaceholderShown && styles.placeholder,
           showError && errorClassName,
-          className
+          className,
         )}
         {...rest}
       >

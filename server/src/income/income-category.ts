@@ -1,7 +1,6 @@
 import { IncomeCategory } from '@prisma/client';
 
-// See src/expenses/expense-category.ts for why this mapping table exists
-// instead of storing the Ukrainian label directly in the enum.
+
 export const INCOME_CATEGORY_LABELS: Record<IncomeCategory, string> = {
   [IncomeCategory.SALARY]: 'Зарплата',
   [IncomeCategory.FREELANCE]: 'Фріланс',

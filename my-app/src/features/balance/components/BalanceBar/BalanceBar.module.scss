@@ -1,5 +1,5 @@
-@use '../../../../shared/styles/variables' as *;
-@use '../../../../shared/styles/mixins' as *;
+@use "../../../../shared/styles/variables" as *;
+@use "../../../../shared/styles/mixins" as *;
 
 .wrapper {
   position: relative;
@@ -102,9 +102,6 @@
   flex-wrap: wrap;
 }
 
-// Власний position:relative (а не покладатись на .group) — щоб попап
-// редагування центрувався рівно під сумою+олівцем, а не під усім .group
-// разом з лейблом "Баланс:" зліва.
 .valueWithEdit {
   position: relative;
   display: flex;
@@ -112,9 +109,6 @@
   gap: 8px;
 }
 
-// display:inline-block + min-width, а не просто ширший текст — щоб довжина
-// перекладу (EN/UK) не змінювала ширину .group і не "з'їжджав" grid-стовпець
-// у .row/.topBar (auto-стовпець центрується заново при кожній зміні ширини).
 .label {
   display: inline-block;
   min-width: 68px;
@@ -179,9 +173,6 @@
   }
 }
 
-// min-width на кнопках підтвердження — найдовший переклад ("Підтвердити")
-// не повинен розтягувати кнопку ширше за те, що займає короткий "Confirm",
-// інакше .group змінює ширину і grid-стовпець з ним "стрибає" при switchі мови.
 .confirmBtn {
   min-width: 160px;
 }
@@ -220,9 +211,6 @@
   flex-shrink: 0;
 }
 
-// Іконка-кнопка "змінити баланс" — той самий приглушений-до-primary-на-hover
-// стиль, що й у стрілок навігації (CategoryGrid/PeriodSwitcher), щоб
-// вписуватись у загальну тему сайту.
 .editBtn {
   display: inline-flex;
   align-items: center;
@@ -241,9 +229,6 @@
 }
 
 .editBtnCompact {
-  // Приховано на mobile — так само, як .confirmCompactBtn: у компактному
-  // TopBar на 320-375px і без цієї іконки рядок ледь вміщається (текст
-  // періоду й так тримається на межі переносу).
   display: none;
   padding: 2px;
 
@@ -252,8 +237,6 @@
   }
 }
 
-// Мобільний варіант — частина суцільної "пігулки" (groupMobile), тому
-// займає всю її висоту замість власного padding.
 .editBtnMobile {
   display: inline-flex;
   align-items: center;
@@ -265,7 +248,9 @@
   border: none;
   color: $color-text-secondary;
   cursor: pointer;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
 
   &:hover {
     color: $color-primary;

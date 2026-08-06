@@ -1,5 +1,5 @@
-@use '../../../../shared/styles/variables' as *;
-@use '../../../../shared/styles/mixins' as *;
+@use "../../../../shared/styles/variables" as *;
+@use "../../../../shared/styles/mixins" as *;
 
 .form {
   display: none;
@@ -7,11 +7,7 @@
   @include tablet {
     display: flex;
     flex-direction: row;
-    // flex-start, не center: усі поля тут рівно 48px, тому вирівнювання
-    // збігається з center, поки не з'явиться "Обов'язкове поле" під одним
-    // із них — тоді center підняв би інпут, щоб перецентрувати вищий
-    // елемент. flex-start фіксує верхній край, і текст помилки просто
-    // дописується знизу, нічого не зсуваючи.
+
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 12px;
@@ -71,12 +67,6 @@
   }
 }
 
-// Іконка календаря лежить ПОВЕРХ інпута (position:absolute), а не в
-// окремому боксі поруч — так само, як на макеті: без власного фону,
-// без border-left, без розширення поля. Ніякого overflow:hidden тут
-// немає навмисно: попередня версія з overflow:hidden на контейнері
-// фіксованої висоти обрізала текст помилки валідації ("Сума має бути
-// більше 0"), коли він з'являвся під інпутом.
 .amountFieldWrap {
   position: relative;
   width: 100%;
@@ -117,8 +107,6 @@
   }
 }
 
-// "Ввести"/"Add" та "Очистити"/"Clear" мають різну довжину — без min-width
-// кнопки змінюють розмір при перемиканні мови.
 .submitBtn {
   min-width: 110px;
 }
@@ -161,11 +149,7 @@
 
 .pageInput {
   height: 52px !important;
-  // border:none (а не border:1px solid transparent) означав, що
-  // .input.inputError взагалі не мав на чому намалювати червону рамку —
-  // border-style лишався none, і border-color нізвідки було взяти.
-  // Прозорий бордер тієї ж товщини виглядає ідентично, поки немає
-  // помилки, і дає можливість підсвітити поле, коли вона з'являється.
+
   border: 1px solid transparent !important;
   border-radius: 0 !important;
   background-color: #fff !important;

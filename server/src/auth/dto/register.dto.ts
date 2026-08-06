@@ -9,7 +9,7 @@ export class RegisterDto {
   @ApiProperty({ example: 'Str0ngPass!', minLength: 8 })
   @IsString()
   @MinLength(8)
-  @MaxLength(72) // bcrypt silently truncates beyond 72 bytes
+  @MaxLength(72) 
   @Matches(/(?=.*[A-Za-z])(?=.*\d)/, {
     message: 'password must contain at least one letter and one number',
   })

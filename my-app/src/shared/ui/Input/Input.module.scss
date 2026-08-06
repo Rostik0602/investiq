@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use "../../styles/variables" as *;
 
 .wrapper {
   display: flex;
@@ -33,18 +33,10 @@
   }
 }
 
-// .input.inputError (не просто .inputError) + !important: контексти на
-// кшталт ExpenseForm/IncomeForm's .fieldInput/.pageInput/.amountInput
-// форсують border через !important (щоб перекрити прозорий border за
-// замовчуванням), і без вищої специфічності + власного !important тут
-// підсвічування помилки просто програвало б і ніколи не було б видно.
 .input.inputError {
   border-color: $color-danger !important;
 }
 
-// Для полів усередині заокругленої групи (.pageFieldsGroup) — фон замість
-// рамки, щоб не перетинатись із заокругленими кутами групи й лініями-
-// роздільниками між полями.
 .input.inputErrorBg {
   background-color: rgba($color-danger, 0.1) !important;
 }

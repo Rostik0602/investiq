@@ -54,8 +54,7 @@ export class ExpensesService {
   async remove(userId: string, id: string): Promise<void> {
     const expense = await this.prisma.expense.findUnique({ where: { id } });
 
-    // Same response whether the row doesn't exist or belongs to someone
-    // else — never reveal that another user's record exists.
+
     if (!expense || expense.userId !== userId) {
       throw new NotFoundException('Expense not found');
     }

@@ -24,9 +24,7 @@ interface MonthSumRow {
 export class StatisticsService {
   constructor(private readonly prisma: PrismaService) {}
 
-  // All aggregation below runs as SQL (raw grouped query or Prisma
-  // groupBy) — never "fetch every row, sum in JS", which wouldn't scale
-  // and would reintroduce float-accumulation error on money.
+
   async getMonthly(userId: string, year: number): Promise<MonthlyStatDto[]> {
     const { start, end } = yearDateRange(year);
 
@@ -74,8 +72,7 @@ export class StatisticsService {
       });
       const sums = new Map(rows.map((row) => [row.category, Number(row._sum.amount ?? 0)]));
 
-      // Every category appears, even with 0 — the Розрахунки category grid
-      // always renders the full fixed set of icons.
+   
       return Object.values(EXPENSE_CATEGORY_LABELS)
         .map((label) => ({
           category: label,

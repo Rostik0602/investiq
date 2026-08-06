@@ -1,5 +1,5 @@
-@use '../../../../shared/styles/variables' as *;
-@use '../../../../shared/styles/mixins' as *;
+@use "../../../../shared/styles/variables" as *;
+@use "../../../../shared/styles/mixins" as *;
 
 .card {
   background-color: #fff;
@@ -30,8 +30,6 @@
   }
 }
 
-// Фіксована ширина — щоб "Expenses"/"Income" проти "Витрати"/"Доходи" не
-// зсували стрілки ліворуч/праворуч при перемиканні мови.
 .title {
   display: inline-block;
   width: 90px;
@@ -49,8 +47,7 @@
   justify-content: center;
   row-gap: 20px;
   margin: 0 auto;
-  // Кластер іконок не повинен розтягуватись на всю ширину картки —
-  // обмежуємо ширину рядка, щоб іконки стояли щільно, як на макеті
+
   max-width: 360px;
 
   @include tablet {

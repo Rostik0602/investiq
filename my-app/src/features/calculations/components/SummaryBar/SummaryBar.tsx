@@ -1,10 +1,10 @@
-import { useTranslation } from 'react-i18next';
-import { useAppSelector } from '../../../../app/hooks';
-import { useGetMonthlyQuery } from '../../../statistics/statisticsApi';
-import { selectCalcPeriod } from '../../selectors';
-import { formatAmount } from '../../../../shared/utils/formatAmount';
-import { toDisplayAmount } from '../../../../shared/utils/currency';
-import styles from './SummaryBar.module.scss';
+import { useTranslation } from "react-i18next";
+import { useAppSelector } from "../../../../app/hooks";
+import { useGetMonthlyQuery } from "../../../statistics/statisticsApi";
+import { selectCalcPeriod } from "../../selectors";
+import { formatAmount } from "../../../../shared/utils/formatAmount";
+import { toDisplayAmount } from "../../../../shared/utils/currency";
+import styles from "./SummaryBar.module.scss";
 
 export const SummaryBar = () => {
   const { t, i18n } = useTranslation();
@@ -18,7 +18,9 @@ export const SummaryBar = () => {
   if (isError) {
     return (
       <div className={styles.bar}>
-        <p className={styles.errorState}>{t('calculations.summaryBar.error')}</p>
+        <p className={styles.errorState}>
+          {t("calculations.summaryBar.error")}
+        </p>
       </div>
     );
   }
@@ -26,22 +28,26 @@ export const SummaryBar = () => {
   return (
     <div className={styles.bar}>
       <div className={styles.item}>
-        <span className={styles.label}>{t('calculations.summaryBar.expenses')}</span>
+        <span className={styles.label}>
+          {t("calculations.summaryBar.expenses")}
+        </span>
         <span className={styles.expense}>
           {isLoading
-            ? '…'
-            : `- ${formatAmount(toDisplayAmount(expenseTotal, i18n.language))} ${t('common.currency')}`}
+            ? "…"
+            : `- ${formatAmount(toDisplayAmount(expenseTotal, i18n.language))} ${t("common.currency")}`}
         </span>
       </div>
 
       <div className={styles.divider} />
 
       <div className={styles.item}>
-        <span className={styles.label}>{t('calculations.summaryBar.income')}</span>
+        <span className={styles.label}>
+          {t("calculations.summaryBar.income")}
+        </span>
         <span className={styles.income}>
           {isLoading
-            ? '…'
-            : `+ ${formatAmount(toDisplayAmount(incomeTotal, i18n.language))} ${t('common.currency')}`}
+            ? "…"
+            : `+ ${formatAmount(toDisplayAmount(incomeTotal, i18n.language))} ${t("common.currency")}`}
         </span>
       </div>
     </div>

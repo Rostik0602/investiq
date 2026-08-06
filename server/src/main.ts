@@ -37,9 +37,9 @@ async function bootstrap() {
 
   const port = configService.get<number>('PORT', 3000);
   await app.listen(port);
-  // eslint-disable-next-line no-console
+
   console.log(`InvestIQ API listening on http://localhost:${port}`);
-  // eslint-disable-next-line no-console
+
   console.log(`Swagger docs at http://localhost:${port}/api/docs`);
 }
 

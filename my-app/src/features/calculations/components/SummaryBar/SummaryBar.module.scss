@@ -1,5 +1,5 @@
-@use '../../../../shared/styles/variables' as *;
-@use '../../../../shared/styles/mixins' as *;
+@use "../../../../shared/styles/variables" as *;
+@use "../../../../shared/styles/mixins" as *;
 
 .bar {
   display: flex;
@@ -47,11 +47,6 @@
   }
 }
 
-// На tablet+ .bar центрується через justify-content:center, а .item стає
-// flex:none (ширина по контенту) — якщо ширина лейбла змінюється між мовами
-// ("Expenses:" проти "Витрати:"), змінюється сумарна ширина .bar, і весь
-// блок візуально зсувається по горизонталі. На mobile .item — flex:1, тому
-// ширина лейбла на розкладку не впливає (min-width там не потрібен).
 .label {
   color: $color-text-secondary;
 

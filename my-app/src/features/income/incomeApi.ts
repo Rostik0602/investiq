@@ -1,5 +1,5 @@
-import { api } from '../../app/api';
-import type { IncomeItem } from './types';
+import { api } from "../../app/api";
+import type { IncomeItem } from "./types";
 
 export interface IncomeQuery {
   month?: number;
@@ -22,26 +22,30 @@ export const incomeApi = api.injectEndpoints({
         if (query?.month) params.month = query.month;
         if (query?.year) params.year = query.year;
         if (query?.category) params.category = query.category;
-        return { url: '/income', params };
+        return { url: "/income", params };
       },
-      providesTags: ['Income'],
+      providesTags: ["Income"],
     }),
     addIncome: builder.mutation<IncomeItem, CreateIncomeRequest>({
       query: (body) => ({
-        url: '/income',
-        method: 'POST',
+        url: "/income",
+        method: "POST",
         body,
       }),
-      invalidatesTags: ['Income', 'Balance', 'Statistics'],
+      invalidatesTags: ["Income", "Balance", "Statistics"],
     }),
     deleteIncome: builder.mutation<void, string>({
       query: (id) => ({
         url: `/income/${id}`,
-        method: 'DELETE',
+        method: "DELETE",
       }),
-      invalidatesTags: ['Income', 'Balance', 'Statistics'],
+      invalidatesTags: ["Income", "Balance", "Statistics"],
     }),
   }),
 });
 
-export const { useGetIncomeQuery, useAddIncomeMutation, useDeleteIncomeMutation } = incomeApi;
+export const {
+  useGetIncomeQuery,
+  useAddIncomeMutation,
+  useDeleteIncomeMutation,
+} = incomeApi;

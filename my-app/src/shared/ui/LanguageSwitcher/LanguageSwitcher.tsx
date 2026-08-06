@@ -1,10 +1,10 @@
-import { useTranslation } from 'react-i18next';
-import clsx from 'clsx';
-import styles from './LanguageSwitcher.module.scss';
+import { useTranslation } from "react-i18next";
+import clsx from "clsx";
+import styles from "./LanguageSwitcher.module.scss";
 
 const LANGUAGES = [
-  { code: 'en', labelKey: 'language.en' },
-  { code: 'uk', labelKey: 'language.uk' },
+  { code: "en", labelKey: "language.en" },
+  { code: "uk", labelKey: "language.uk" },
 ] as const;
 
 export const LanguageSwitcher = () => {
@@ -17,7 +17,10 @@ export const LanguageSwitcher = () => {
           {index > 0 && <span className={styles.divider} aria-hidden="true" />}
           <button
             type="button"
-            className={clsx(styles.langBtn, i18n.language === code && styles.active)}
+            className={clsx(
+              styles.langBtn,
+              i18n.language === code && styles.active,
+            )}
             onClick={() => i18n.changeLanguage(code)}
             aria-pressed={i18n.language === code}
           >

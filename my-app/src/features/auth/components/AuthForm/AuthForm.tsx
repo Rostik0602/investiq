@@ -1,15 +1,20 @@
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import { useTranslation } from 'react-i18next';
-import { Input } from '../../../../shared/ui/Input/Input';
-import { AuthTabs } from '../AuthTabs/AuthTabs';
-import styles from './AuthForm.module.scss';
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { useTranslation } from "react-i18next";
+import { Input } from "../../../../shared/ui/Input/Input";
+import { AuthTabs } from "../AuthTabs/AuthTabs";
+import styles from "./AuthForm.module.scss";
 
 const validationSchema = Yup.object({
-  email: Yup.string().email('Некоректна електронна пошта').required("Обов'язкове поле"),
+  email: Yup.string()
+    .email("Некоректна електронна пошта")
+    .required("Обов'язкове поле"),
   password: Yup.string()
-    .min(8, 'Мінімум 8 символів')
-    .matches(/(?=.*[A-Za-z])(?=.*\d)/, 'Пароль має містити принаймні одну літеру та одну цифру')
+    .min(8, "Мінімум 8 символів")
+    .matches(
+      /(?=.*[A-Za-z])(?=.*\d)/,
+      "Пароль має містити принаймні одну літеру та одну цифру",
+    )
     .required("Обов'язкове поле"),
 });
 
@@ -28,18 +33,18 @@ export const AuthForm = ({
 }: AuthFormProps) => {
   const { t } = useTranslation();
   const formik = useFormik({
-    initialValues: { email: '', password: '' },
+    initialValues: { email: "", password: "" },
     validationSchema,
     onSubmit: () => {},
   });
 
-  const handleAction = async (action: 'login' | 'register') => {
+  const handleAction = async (action: "login" | "register") => {
     const errors = await formik.validateForm();
     formik.setTouched({ email: true, password: true });
 
     if (Object.keys(errors).length > 0) return;
 
-    if (action === 'login') {
+    if (action === "login") {
       onLogin(formik.values);
     } else {
       onRegister(formik.values);
@@ -52,7 +57,7 @@ export const AuthForm = ({
         id="email"
         name="email"
         type="email"
-        label={t('auth.emailLabel')}
+        label={t("auth.emailLabel")}
         placeholder="your@email.com"
         value={formik.values.email}
         onChange={formik.handleChange}
@@ -65,8 +70,8 @@ export const AuthForm = ({
         id="password"
         name="password"
         type="password"
-        label={t('auth.passwordLabel')}
-        placeholder={t('auth.passwordPlaceholder')}
+        label={t("auth.passwordLabel")}
+        placeholder={t("auth.passwordPlaceholder")}
         value={formik.values.password}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
@@ -75,8 +80,8 @@ export const AuthForm = ({
       />
 
       <AuthTabs
-        onLoginClick={() => handleAction('login')}
-        onRegisterClick={() => handleAction('register')}
+        onLoginClick={() => handleAction("login")}
+        onRegisterClick={() => handleAction("register")}
         isLoginLoading={isLoginLoading}
         isRegisterLoading={isRegisterLoading}
       />

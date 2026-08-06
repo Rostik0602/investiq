@@ -33,10 +33,6 @@ export class BalanceService {
     };
   }
 
-  // Also used to edit the starting balance later — the frontend exposes an
-  // edit button next to the confirmed balance, not just the first-time
-  // setup flow, so this intentionally allows overwriting an already
-  // confirmed value rather than only working once.
   async setStartingBalance(userId: string, dto: SetBalanceDto): Promise<BalanceResponseDto> {
     const user = await this.usersService.findById(userId);
     if (!user) {

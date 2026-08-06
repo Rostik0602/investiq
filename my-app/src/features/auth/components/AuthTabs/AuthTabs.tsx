@@ -1,6 +1,6 @@
-import { useTranslation } from 'react-i18next';
-import { Button } from '../../../../shared/ui/Button/Button';
-import styles from './AuthTabs.module.scss';
+import { useTranslation } from "react-i18next";
+import { Button } from "../../../../shared/ui/Button/Button";
+import styles from "./AuthTabs.module.scss";
 
 interface AuthTabsProps {
   onLoginClick: () => void;
@@ -25,7 +25,7 @@ export const AuthTabs = ({
         onClick={onLoginClick}
         isLoading={isLoginLoading}
       >
-        {t('auth.login')}
+        {t("auth.login")}
       </Button>
       <Button
         type="button"
@@ -33,7 +33,7 @@ export const AuthTabs = ({
         onClick={onRegisterClick}
         isLoading={isRegisterLoading}
       >
-        {t('auth.register')}
+        {t("auth.register")}
       </Button>
     </div>
   );

@@ -1,10 +1,6 @@
 import { ExpenseCategory } from '@prisma/client';
 
-// Maps the Prisma enum identifier to the exact Ukrainian label the frontend
-// already uses (see my-app/src/features/expenses/types.ts EXPENSE_CATEGORIES).
-// Keeping this as an explicit table (rather than @map in schema.prisma)
-// means the wire format stays human-readable Ukrainian while the DB column
-// stays a real, constrained enum.
+
 export const EXPENSE_CATEGORY_LABELS: Record<ExpenseCategory, string> = {
   [ExpenseCategory.TRANSPORT]: 'Транспорт',
   [ExpenseCategory.PRODUCTS]: 'Продукти',

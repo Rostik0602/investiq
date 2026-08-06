@@ -1,5 +1,5 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { TransactionType } from './types';
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import type { TransactionType } from "./types";
 
 interface CalculationsState {
   month: number; // 0-11
@@ -12,11 +12,11 @@ const now = new Date();
 const initialState: CalculationsState = {
   month: now.getMonth(),
   year: now.getFullYear(),
-  type: 'expenses',
+  type: "expenses",
 };
 
 const calculationsSlice = createSlice({
-  name: 'calculations',
+  name: "calculations",
   initialState,
   reducers: {
     goToPrevMonth: (state) => {
@@ -41,5 +41,6 @@ const calculationsSlice = createSlice({
   },
 });
 
-export const { goToPrevMonth, goToNextMonth, setType } = calculationsSlice.actions;
+export const { goToPrevMonth, goToNextMonth, setType } =
+  calculationsSlice.actions;
 export default calculationsSlice.reducer;

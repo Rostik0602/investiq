@@ -1,6 +1,6 @@
-import { type ReactNode } from 'react';
-import { LanguageSwitcher } from '../../shared/ui/LanguageSwitcher/LanguageSwitcher';
-import styles from './Header.module.scss';
+import { type ReactNode } from "react";
+import { LanguageSwitcher } from "../../shared/ui/LanguageSwitcher/LanguageSwitcher";
+import styles from "./Header.module.scss";
 
 interface HeaderProps {
   rightSlot?: ReactNode;

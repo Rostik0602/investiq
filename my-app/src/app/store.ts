@@ -1,8 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit';
-import authReducer from '../features/auth/authSlice';
-import { api } from './api';
-import notificationReducer from '../features/notification/notificationSlice';
-import calculationsReducer from '../features/calculations/calculationsSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import authReducer from "../features/auth/authSlice";
+import { api } from "./api";
+import notificationReducer from "../features/notification/notificationSlice";
+import calculationsReducer from "../features/calculations/calculationsSlice";
 
 export const store = configureStore({
   reducer: {
