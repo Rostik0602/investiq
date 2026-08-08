@@ -2,16 +2,20 @@
 @use "../../../../shared/styles/mixins" as *;
 
 .topBar {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 14px;
   padding: 12px;
   background-color: #fff;
   border-radius: $radius-lg;
   box-shadow: $shadow-card;
 
   @include tablet {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
     gap: 8px;
     padding: 20px;
   }
@@ -22,16 +26,19 @@
 }
 
 .backLink {
+  position: absolute;
+  top: 12px;
+  left: 12px;
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  justify-self: stretch;
   min-width: 0;
   font-size: 10px;
   font-weight: 600;
   color: $color-primary;
 
   @include tablet {
+    position: static;
     justify-self: start;
     gap: 6px;
     font-size: 12px;
@@ -48,23 +55,35 @@
 }
 
 .backLinkText {
-  display: inline;
+  display: none;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  @include tablet {
+    display: inline;
+  }
 }
 
 .balance {
+  order: 2;
   min-width: 0;
-  justify-self: center;
+
+  @include tablet {
+    order: 0;
+    justify-self: center;
+  }
 }
 
 .period {
+  order: 1;
   min-width: 0;
-  justify-self: stretch;
+  padding-top: 8px;
 
   @include tablet {
+    order: 0;
+    padding-top: 0;
     justify-self: end;
   }
 }
