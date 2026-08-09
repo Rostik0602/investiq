@@ -60,7 +60,8 @@
     "submit": "Add",
     "clear": "Clear",
     "expenseSaveError": "Failed to save expense",
-    "incomeSaveError": "Failed to save income"
+    "incomeSaveError": "Failed to save income",
+    "insufficientBalance": "Insufficient balance for this expense"
   },
   "table": {
     "date": "Date",

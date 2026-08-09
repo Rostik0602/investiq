@@ -1,5 +1,6 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { Expense } from '@prisma/client';
+import { BalanceService } from '../balance/balance.service';
 import { monthDateRange } from '../common/utils/date-range.util';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateExpenseDto } from './dto/create-expense.dto';
@@ -9,7 +10,10 @@ import { expenseCategoryFromLabel, expenseCategoryToLabel } from './expense-cate
 
 @Injectable()
 export class ExpensesService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly balanceService: BalanceService,
+  ) {}
 
   async findAll(userId: string, query: QueryExpensesDto): Promise<ExpenseResponseDto[]> {
     const { month, year, category } = query;
@@ -38,6 +42,11 @@ export class ExpensesService {
   }
 
   async create(userId: string, dto: CreateExpenseDto): Promise<ExpenseResponseDto> {
+    const { totalBalance } = await this.balanceService.getBalance(userId);
+    if (dto.amount > totalBalance) {
+      throw new BadRequestException('INSUFFICIENT_BALANCE');
+    }
+
     const expense = await this.prisma.expense.create({
       data: {
         userId,

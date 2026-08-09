@@ -23,6 +23,13 @@ const validationSchema = Yup.object({
     .required("Обов'язкове поле"),
 });
 
+const isInsufficientBalanceError = (err: unknown): boolean => {
+  if (!err || typeof err !== "object" || !("data" in err)) return false;
+  const data = (err as { data?: unknown }).data;
+  if (!data || typeof data !== "object" || !("message" in data)) return false;
+  return (data as { message?: unknown }).message === "INSUFFICIENT_BALANCE";
+};
+
 interface ExpenseFormProps {
   standalone?: boolean;
   onDone?: () => void;
@@ -58,10 +65,14 @@ export const ExpenseForm = ({
         }).unwrap();
         resetForm();
         onDone?.();
-      } catch {
+      } catch (err) {
         dispatch(
           showNotification({
-            message: t("transactionForm.expenseSaveError"),
+            message: t(
+              isInsufficientBalanceError(err)
+                ? "transactionForm.insufficientBalance"
+                : "transactionForm.expenseSaveError",
+            ),
             type: "error",
           }),
         );

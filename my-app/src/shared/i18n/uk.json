@@ -60,7 +60,8 @@
     "submit": "Ввести",
     "clear": "Очистити",
     "expenseSaveError": "Не вдалося зберегти витрату",
-    "incomeSaveError": "Не вдалося зберегти дохід"
+    "incomeSaveError": "Не вдалося зберегти дохід",
+    "insufficientBalance": "Недостатньо коштів на балансі для цієї витрати"
   },
   "table": {
     "date": "Дата",
