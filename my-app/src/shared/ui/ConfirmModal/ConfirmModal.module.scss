@@ -1,0 +1,120 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgba(20, 20, 28, 0.55);
+  z-index: 2000;
+  animation: fadeIn 0.2s ease;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  padding: 32px 20px 24px;
+  border-radius: $radius-lg;
+  background-color: $color-card-bg;
+  box-shadow: $shadow-card;
+  text-align: center;
+  animation: popIn 0.2s ease;
+
+  @include tablet {
+    max-width: 400px;
+    padding: 36px 32px 28px;
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: $color-text;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.title {
+  margin: 0 0 24px;
+  padding: 0 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: $color-text;
+
+  @include tablet {
+    font-size: 16px;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.confirmBtn {
+  flex: 1;
+  min-width: 0;
+}
+
+.cancelBtn {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0 12px;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background-color: #fff;
+  color: $color-text-secondary;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  &:hover:not(:disabled) {
+    border-color: $color-primary;
+    color: $color-text;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

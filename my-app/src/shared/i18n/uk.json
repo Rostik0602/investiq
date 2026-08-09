@@ -24,7 +24,11 @@
   "userMenu": {
     "defaultName": "User Name",
     "logout": "Вийти",
-    "logoutAria": "Вийти"
+    "logoutAria": "Вийти",
+    "logoutConfirmTitle": "Ви дійсно хочете вийти?",
+    "logoutConfirmYes": "Так",
+    "logoutConfirmNo": "Ні",
+    "logoutConfirmCloseAria": "Закрити"
   },
   "notifications": {
     "loggedOut": "Ви вийшли з акаунту"

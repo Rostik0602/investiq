@@ -24,7 +24,11 @@
   "userMenu": {
     "defaultName": "User Name",
     "logout": "Log out",
-    "logoutAria": "Log out"
+    "logoutAria": "Log out",
+    "logoutConfirmTitle": "Are you sure you want to log out?",
+    "logoutConfirmYes": "Yes",
+    "logoutConfirmNo": "No",
+    "logoutConfirmCloseAria": "Close"
   },
   "notifications": {
     "loggedOut": "You have logged out"
