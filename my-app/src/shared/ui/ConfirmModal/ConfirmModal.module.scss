@@ -11,11 +11,6 @@
   background-color: rgba(20, 20, 28, 0.55);
   z-index: 2000;
   animation: fadeIn 0.2s ease;
-
-  @include tablet {
-    align-items: flex-start;
-    padding-top: 14vh;
-  }
 }
 
 .card {
